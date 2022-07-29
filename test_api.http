@@ -1,0 +1,65 @@
+#Variables
+@contentType = application/json
+@HOST_LOCAL=http://localhost:50008
+@HOST_DEV=http://dev.hostname.net/geo/v3
+@HOST_QA=https://qa.hostname.net/geo/v3
+
+@APIKEY_DUMMY=dummyapikey
+@APIKEY_DEV=devapikey
+@APIKEY_QA=qaapikey
+
+@APIKEY={{APIKEY_DUMMY}}
+# you can replace this APIKEY with either of the DUMMY,DEV or QA API keys as per your requirement
+@HOST={{HOST_LOCAL}}
+# similarly you can also replace HOST_LOCAL with HOST_DEV or HOST_QA as per your requirement
+
+# Next step is creating the URLs (here we are checking 3 APIS /status,/compGeo and /compReverseGeo
+@status={{HOST}}/status
+@comp_geo={{HOST}}/compGeo
+@comp_reverse_geo={{HOST}}/compReverseGeo
+
+#####!!!!!!!!!!!!!!!!!  Status !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#####
+GET {{status}}?api_key={{APIKEY}}
+############# 
+
+#####!!!!!!!!!!!!!! compGeo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!###
+POST {{comp_geo}}?api_key={{APIKEY}} HTTP/1.1
+Content-Type: {{contentType}}
+
+[
+    {
+        "street_num": 19,
+        "street": "WILDER ST",
+        "city": "MIDDLEBORO",
+        "state": "MA",
+        "record_id": 1
+    },
+    {
+        "street_num": 348,
+        "street": "E WASHINGTON ST",
+        "city": "NORTH ATTLEBORO",
+        "state": "MA",
+        "record_id": 2
+    },
+]
+
+
+#####!!!!!!!!!!!!!! compReverseGeo  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!###
+#### invoke Bulk Reverse Geo ####
+#########
+POST {{comp_reverse_geo}}?api_key={{APIKEY}} HTTP/1.1
+Content-Type: {{contentType}}
+
+[
+    {
+        "search_center": "42.2921597957611,-71.8006324768066",
+        "record_id": "1"
+    },
+    {
+        "search_center": "41.6696190834045,-70.9382271766663",
+        "record_id": "2"
+    },
+]
+
+
+
