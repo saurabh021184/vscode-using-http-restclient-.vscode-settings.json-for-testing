@@ -1,1 +1,24 @@
 
+{
+    "editor.formatOnSave": true,
+    "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#45a1ac",
+        "statusBar.background": "#45a1ac"
+    },
+    "rest-client.environmentVariables": {
+        "$shared": {
+            "contentType": "application/json"
+        },
+        "localhost": {
+            "HOST": "http://localhost:50008",
+            "API_KEY": "dummy-localhost-apikey"
+        },
+        "dev": {
+            "HOST": "http://api.dev.net/geo/v3",
+            "API_KEY": "dummy-dev-key"
+        },
+        "qa": {
+            "HOST": "http://api.qa.net/geo/v3",
+            "API_KEY": "dummy-qa-key"
+    },
+}
