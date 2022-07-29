@@ -7,7 +7,7 @@ espcially for Micro-Service based APIs where we will get our results immediately
 Ofcourse for long running processing (e.g. batch load - gisupdate project where the load takes 1 hour) then we can use browser 
 http://localhost:3003/docs (swagger).  All based on our requirement
 
-
+After intalling RestClient extension in vscode just refer to test_api.http script to see how you setup APIs for different environments
 # References:
 1. https://marketplace.visualstudio.com/items?itemName=humao.rest-client - valid vscode extension to setup REST client
 2. https://medium.com/refinitiv-developer-community/how-to-test-rest-api-with-visual-studio-code-rest-client-extensions-9f2e061d0299
